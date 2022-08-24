@@ -1,0 +1,57 @@
+﻿@model IEnumerable<EntitiyLayer.Concrete.Category>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h2>index</h2>
+        <br />
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Kategori adı</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CategoryID</td>
+                    <td>@item.CategoryName</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal1">
+        satış yap.
+    </button>
+    <div class="modal" id="modal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Satış yapma ekranı </h2>
+                </div>
+                <form method="post" action="/satis/YeniSatis">
+                    <div class="modal-body">
+                       
+                        <br />
+                        <button type="submit" class="btn btn-info">Satış yap</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
+
+
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

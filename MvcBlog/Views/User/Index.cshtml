@@ -1,0 +1,52 @@
+﻿@model IEnumerable<EntitiyLayer.Concrete.Author>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AuthorLayout.cshtml";
+}
+
+<h2>Yazar Profil bilgileri</h2>
+
+<!DOCTYPE html>
+
+<html>
+
+
+
+<body class="hold-transition sidebar-mini">
+
+    <div class="wrapper">
+
+       
+
+            <div class="container-fluid">
+
+               
+
+                    <!-- /.col -->
+
+                    <div class="col-md-10">
+
+                      
+
+            @Html.Action("Partial1", "User")
+
+                    </div>
+
+                   
+
+                </div>
+
+                <!-- /.row -->
+
+            </div><!-- /.container-fluid -->
+
+
+        <!-- /.content -->
+
+
+
+
+
+</body>
+
+</html>

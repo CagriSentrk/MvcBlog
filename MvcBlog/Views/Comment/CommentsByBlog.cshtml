@@ -1,0 +1,42 @@
+﻿@model IEnumerable<EntitiyLayer.Concrete.Comment>
+@{
+    ViewBag.Title = "CommentsByBlog";
+    Layout = "~/Views/Shared/AuthorLayout.cshtml";
+    var contactCount = Model.Count();
+}
+
+<h2>CommentsByBlog</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Blog</th>
+        <th>Yorum yapan</th>
+        <th>Yorum</th>
+        <th>Tarih</th>
+      
+
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Blogs.BlogTitle</td>
+            <td>@item.UserName</td>
+            <td>@item.CommentText</td>
+            <td>@item.CommentDate</td>
+         <td>@item.Blogs.Comments.Count()</td>
+
+        
+
+        </tr>
+
+
+    }
+
+
+</table>
+
+
+<h2>Toplam yorum sayısı: @contactCount </h2>
+    
+

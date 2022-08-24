@@ -1,0 +1,168 @@
+﻿@model IEnumerable<EntitiyLayer.Concrete.Blog>
+@{
+    ViewBag.Title = "AuthorProfile";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | User Profile</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4//plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+
+
+    <!-- Content Header (Page header) -->
+    
+   
+
+
+        <!-- Main content -->
+   
+         
+                <div class="row">
+                    <div class="col-md-3">
+                        
+                            <!-- Profile Image -->
+                            <div class="card card-primary card-outline">
+                                <div class="card-body box-profile">
+                                    <div class="text-center">
+                                        <img class="profile-user-img img-fluid img-circle"
+                                             src="@ViewBag.AuthorImage"
+                                             alt="User profile picture">
+                                    </div>
+
+                                    <h3 class="profile-username text-center">@ViewBag.Authorname</h3>
+
+                                    <p class="text-muted text-center">@ViewBag.Authortitle</p>
+
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                            <!-- About Me Box -->
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Hakkımda</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+
+
+                                    <p class="text-muted">
+
+                                        <h2>@ViewBag.AuthorAbout1</h2>
+
+
+                                    </p>
+
+                                    <p class="text-muted">
+
+                                        <h3>Mail:</h3>  @ViewBag.AuthorMail
+
+
+                                    </p>
+
+                                    <a href="#" class="btn btn-outline-info">Mesaj Gönder.</a>
+
+
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        
+                        </div>
+                        
+                    <!-- /.col -->
+                    <div class="col-md-9">
+                        <div class="card">
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="tab-content">
+                                    <div class="active tab-pane" id="activity">
+                                        <!-- Post -->
+                                        <div class="row">
+                                            @foreach (var x in Model)
+                                            {
+                                               
+
+                                                <div class="col-lg-4 mb-4">
+                                                    <div class="entry2">
+                                                        <a href="/Blog/BlogDetails/@x.BlogID"><img src="@x.BlogImage" style="height:250px" alt="Image" class="img-fluid rounded"></a>
+                                                        <div class="excerpt">
+                                                            
+                                                            <h2><a href="/Blog/BlogDetails/@x.BlogID">@x.BlogTitle</a></h2>
+                                                            <div class="post-meta align-items-center text-left clearfix">
+                                                                <figure class="author-figure mb-0 mr-3 float-left"><img src="@x.Author.AuthorImage" alt="Image" class="img-fluid"></figure>
+                                                                <span class="d-inline-block mt-1"><a href="#">@x.Author.AuthorName</a></span>
+                                                                <span>&nbsp;-&nbsp;@(((DateTime)x.BlogDate).ToString("dd-MMM-yyyy"))</span>
+                                                            </div>
+
+                                                            <p>@x.BlogContent.Substring(0, x.BlogContent.Substring(0, 5).LastIndexOf(""))...</p>
+                                                            <p><a href="/Blog/BlogDetails/@x.BlogID">Devamını oku.</a></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                        
+                                        <!-- /.post -->
+                                        <!-- Post -->
+                                        <div class="post clearfix">
+
+                                            <!-- /.user-block -->
+
+
+
+                                        </div>
+                                        <!-- /.post -->
+                                        <!-- Post -->
+                                        <!-- /.post -->
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                    <!-- /.tab-pane -->
+                                    <!-- /.tab-pane -->
+                                </div>
+                                <!-- /.tab-content -->
+                            </div><!-- /.card-body -->
+                        </div>
+                        <!-- /.nav-tabs-custom -->
+                    </div>
+                    <!-- /.col -->
+                        
+                </div>
+                <!-- /.row -->
+           
+ 
+    
+    <!-- /.content -->
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
+</body>
+</html>

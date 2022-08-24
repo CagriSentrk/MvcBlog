@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+@Html.Action("FeaturedPost","Blog")
+    <!--Blog controller'dan oluşturduğum BlogList partial'ını çağırdım.'-->
+
+@Html.Action("BlogList", "Blog"); 
+@*@Html.Action("OtherFeturedPost","Blog");*@ 
+@Html.Action("AddMail", "MailSubscribe"); 
+@Html.Action("Footer","About"); 
