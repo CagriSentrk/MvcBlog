@@ -1,0 +1,119 @@
+﻿@model IEnumerable<EntitiyLayer.Concrete.Author>
+
+@{
+    ViewBag.Title = "AuthorList";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+   
+}
+
+<h2>AuthorList</h2>
+
+<!DOCTYPE html>
+
+<html>
+
+<body class="hold-transition sidebar-mini">
+
+    <!-- Site wrapper -->
+
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <!-- Main content -->
+
+        <section class="content">
+
+            <!-- Default box -->
+
+            <div class="card card-solid">
+
+                <div class="card-body pb-0">
+
+                    <div class="row d-flex align-items-stretch">
+                        @foreach (var item in Model)
+                        {
+
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+
+
+                                <div class="card bg-light">
+
+                                    <div class="card-header text-muted border-bottom-0">
+
+                                        @item.Title
+                                    </div>
+
+                                    <div class="card-body pt-0">
+
+                                        <div class="row">
+
+                                            <div class="col-7">
+
+                                                <h2 class="lead"><b>@item.AuthorAbout</b></h2>
+
+                                                <p class="text-muted text-sm"><b>About: </b> @item.AuthorName </p>
+                                                <p class="text-muted text-sm"><b>Mail: </b> @item.Mail </p>
+                                                <p class="text-muted text-sm"><b>Telefon: </b> @item.PhoneNumber </p>
+                                                <p class="text-muted text-sm"><b>Toplam blog sayısı:  </b></p>
+
+                                                <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                </ul>
+
+                                            </div>
+
+                                            <div class="col-5 text-center">
+
+                                                <img src="@item.AuthorImage" alt="" class="img-circle img-fluid">
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="card-footer">
+
+                                        <div class="text-right">
+
+                                            <a href="/Author/AdminAuthorBlogList/@item.AuthorID" class="btn btn-sm bg-teal">
+
+                                                <i class="fas fa-comments">Yazarın Blogları</i>
+
+                                            </a>
+
+
+                                            <a href="/Author/AuthorEdit/@item.AuthorID" class="btn btn-sm btn-primary">
+
+
+                                                <i class="fas fa-user"></i> Profili Düzenle
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        }
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <!-- /.card -->
+
+        </section>
+
+        <!-- /.content -->
+
+    </div>
+
+    <!-- /.control-sidebar -->
+    <td><a href="/Author/AddAuthor" class="btn btn-outline-primary">Yeni Yazar Ekle</a></td>
+</body>
+
+</html>
