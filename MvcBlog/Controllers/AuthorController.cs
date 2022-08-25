@@ -67,35 +67,8 @@ namespace MvcBlog.Controllers
           
         }
       
-       
-
-        [AllowAnonymous]
-        public ActionResult AuthorProfile(int id)
         {
 
-            var Authorname = authormanager.GetBlogByAuthor1(id).Select(y => y.Author.AuthorName).FirstOrDefault();
-            ViewBag.Authorname = Authorname;
-
-            var AuthorAbout = authormanager.GetBlogByAuthor1(id).Select(y => y.Author.AuthorAbout).FirstOrDefault();
-
-            ViewBag.AuthorAbout1 = AuthorAbout;
-
-            var AuthorImage = authormanager.GetBlogByAuthor1(id).Select(y => y.Author.AuthorImage).FirstOrDefault();
-            ViewBag.AuthorImage = AuthorImage;
-
-            var AuthorMail = authormanager.GetBlogByAuthor1(id).Select(y => y.Author.Mail).FirstOrDefault();
-
-            ViewBag.AuthorMail = AuthorMail;
-
-
-            var Authortitle = authormanager.GetBlogByAuthor1(id).Select(y => y.Author.Title).FirstOrDefault();
-
-            ViewBag.Authortitle = Authortitle;
-
-
-
-            var BlogListByAuthor = bm.GetBlogByAuthor(id);
-            return View(BlogListByAuthor);
 
         }
 

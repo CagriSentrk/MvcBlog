@@ -48,7 +48,6 @@ namespace BussinessLayer.Concrete
             return repoblog.Update(author);
 
         }
-        public List<Blog> GetBlogByAuthor1(int id)
         {
             return repouserblog.List(x => x.AuthorID == id); //id ye göre blog listele.
         }
