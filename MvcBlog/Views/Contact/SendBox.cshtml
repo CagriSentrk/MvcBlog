@@ -2,10 +2,8 @@
 @{
     ViewBag.Title = "SendBox";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
+    var count = Model.Count(x=>x.ContactStatus==true);
 }
-
-
-
 
 
 <!DOCTYPE html>
@@ -72,10 +70,10 @@
 
                             <li class="nav-item active">
 
-                                <a href="#" class="nav-link">
+                                <a href="/Contact/SendBox" class="nav-link">
 
                                     <i class="fas fa-inbox"></i> Gelen Kutusu
-
+                                    <span class="badge bg-success float-right">@count</span>
 
                                 </a>
 
@@ -105,8 +103,10 @@
                             <li class="nav-item">
 
 
-                                    <i class="fas fa-filter"></i> Çöp Kutusu
+                                <a href="/Contact/TrashMessage" class="nav-link">
 
+                                    <i class="far fa-file-alt"></i> Çöp kutusu
+                                    <span class="badge bg-primary float-right">0</span>
 
                                 </a>
 
