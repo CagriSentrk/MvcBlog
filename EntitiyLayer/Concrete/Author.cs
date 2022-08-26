@@ -31,7 +31,8 @@ namespace EntitiyLayer.Concrete
 
 
         public ICollection<Blog> Blogs { get; set; }
+        public ICollection<MessageAuthor> MessageAuthors { get; set; }
 
-        
+
     }
 }

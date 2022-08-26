@@ -34,15 +34,16 @@
                 <div class="main-hotair">
                     <div class="content-wthree">
                         <h2>Yazar Girişi</h2>
-                       @using (Html.BeginForm("AuthorLogin", "Login", FormMethod.Post))
-                       {
+                        @using (Html.BeginForm("AuthorLogin", "Login", FormMethod.Post))
+                        {
                             <input type="text" class="text" name="Mail" placeholder="Mail" required="" autofocus>
                             <input type="password" class="password" name="Password" placeholder=" Şifre" required="" autofocus>
                             <button class="btn" type="submit">Giriş Yap</button>
-                       
 
-                        <p class="account">Bir hesabın yok mu? <a href="/Register/Register">Kayıt ol</a></p>
-                       }
+
+                            <p class="account">Bir hesabın yok mu? <a href="/Register/Register">Kayıt ol</a></p>
+                           <p class="account"><a href="/Login/AdminLogin">Admin girişi</a></p> 
+                        }
                     </div>
                     <div class="w3l_form align-self">
                         <div class="left_grid_info">

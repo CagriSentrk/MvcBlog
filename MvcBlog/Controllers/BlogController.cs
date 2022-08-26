@@ -11,10 +11,12 @@ using System.Web.Mvc;
 
 namespace MvcBlog.Controllers
 {
+
     [Authorize]
     public class BlogController : Controller
-
+        
     {
+
         BlogManager bm = new BlogManager();
         // GET: Blog
         [AllowAnonymous]
@@ -152,7 +154,7 @@ namespace MvcBlog.Controllers
             return PartialView(BlogListByCategory);
         }
 
-     
+       [Authorize(Roles ="A")]
         public ActionResult AdminBlogList()
         {
             var bloglist = bm.GetAll();
@@ -166,7 +168,7 @@ namespace MvcBlog.Controllers
 
 
         [HttpGet]
-       
+        [Authorize (Roles ="A")]
         public ActionResult AddNewBlog()
         { 
             //DropdownList
@@ -192,23 +194,26 @@ namespace MvcBlog.Controllers
             return View();
         }
         [HttpPost]
-     
+        [Authorize]
         public ActionResult AddNewBlog(Blog b)
         {
             bm.BlogAddBL(b);     //adminin blog eklemesi için yazdığım methodu çağırdım.
             return RedirectToAction("AdminBlogList");
         }
+    
         public ActionResult DeleteBlog(int id)
         {
             bm.DeleteBlogBL(id);
             return RedirectToAction("AdminBlogList");
         }
+    
         public ActionResult DeleteBlogCategory(int id)
         {
             bm.DeleteBlogBL(id);
             return RedirectToAction("AdminBlogList");
         }
         [HttpGet]
+        [Authorize]
         public ActionResult UpdateBlog(int id)
         {
 
@@ -236,13 +241,14 @@ namespace MvcBlog.Controllers
             return View(blog);
         }
          [HttpPost]
-    
+        [Authorize]
         public ActionResult UpdateBlog(Blog p)
         {
             bm.UpdateBlog(p);
             return RedirectToAction("AdminBlogList");
 
         }
+        [Authorize]
         public ActionResult GetCommentByBlog(int id)
         {
             CommentManager cm = new CommentManager();
